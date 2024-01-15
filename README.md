@@ -2,19 +2,23 @@ compareCCI
 ===
 compareCCI is a tool for analyzing different cell-cell communication between different groups (normal and tumor) or different conditions (treatment and control). The analysis process is as follows:
 
->### step 1. Use the normalized counts matrix generated from Seurat as the input file. Each sample generates a file with Gene Symbol as row name and Cell barcode as column name. The format is as follows:
+>#### step 1. Use the normalized counts matrix generated from Seurat as the input file. Each sample generates a file with Gene Symbol as row name and Cell barcode as column name. The format is as follows:
 >
->`gene	O2_AAACCCAAGCGTGAGT-1	O2_AAACCCAAGTAAGAGG-1	O2_AAACCCACAACAAAGT-1	O2_AAACCCACACGTACTA-1	O2_AAACCCACATTGCTTT-1	O2_AAACCCATCAAGAGGC-1	O2_AAACCCATCATGAGAA-1
+```shell
+gene	O2_AAACCCAAGCGTGAGT-1	O2_AAACCCAAGTAAGAGG-1	O2_AAACCCACAACAAAGT-1	O2_AAACCCACACGTACTA-1	O2_AAACCCACATTGCTTT-1	O2_AAACCCATCAAGAGGC-1	O2_AAACCCATCATGAGAA-1
 Gm19938	0	0	0	0	0	0	0
 Mrpl15	0	0	0	0	0	0	0.836548908
 Lypla1	0	0	0	2.903692602	0	1.784298604	0
 Tcea1	0	0	0	0	0	0	0.836548908
 Atp6v1h	0	0	0	0	0	0	0
-Rb1cc1	0	0	0	0	0	1.784298604	0`
->
+Rb1cc1	0	0	0	0	0	1.784298604	0
+```
 >All sample files are placed in the folder normalized_counts.
 
->### step 2. Run `perl LRexp.pl -c normalized_counts -a cell_annotation.txt -d LR_database.txt`
+>#### step 2. Run
+```perl
+perl LRexp.pl -c normalized_counts -a cell_annotation.txt -d LR_database.txt
+```
 >
 >This step calculates the expression of ligands and receptors in different cells. Among them, cell_annotation.txt is the cell annotation file of all samples. The first column is the barcode name, and the second column is the cell type. The format is as follows:
 >
@@ -56,7 +60,10 @@ Ada	Adora2b	0.0340165744927523	Erythroblast	0.00618924096042447	B cell
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.00386360469068607	CD8 effector memory T cell
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.00742336096690841	Naive B cell
 
->### step 3. `Run perl LRscore.pl -d lr_tr_cell`
+>#### step 3. Run
+```perl
+perl LRscore.pl -d lr_tr_cell
+```
 >
 >This step calculates the ligand-receptor interaction scores (LRscore) for different cell pairs. "lr_tr_cell" is the folder that stores the LR expression obtained in the previous step. The output results are the folder "merge_celltype" and the file "merge_celltype.txt". 
 >
@@ -73,7 +80,10 @@ F11r|F11r	1.37152915298106e-005	2.39733637137885e-005	2.25931441597501e-005	2.15
 
 
 
->### step 4. `Run perl LRcompare.pl merge_celltype.txt 5,6,7 2,3,4`
+>#### step 4. Run
+```perl
+perl LRcompare.pl merge_celltype.txt 5,6,7 2,3,4
+```
 >
 >This program performs a permutation test on two sets of LR scores. "merge_celltype.txt" is the LRscore file obtained in the previous step. "5, 6, 7" and "2, 3, 4" are the column numbers corresponding to group1 and group2 respectively. The column numbers are separated by commas. Users can define the column number according to their own sample number.
 >
