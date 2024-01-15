@@ -4,7 +4,7 @@ compareCCI is a tool for analyzing different cell-cell communication between dif
 
 #### step 1. Use the normalized counts matrix generated from Seurat as the input file. Each sample generates a file with Gene Symbol as row name and Cell barcode as column name. The format is as follows:
 >
-```shell
+>
 gene	O2_AAACCCAAGCGTGAGT-1	O2_AAACCCAAGTAAGAGG-1	O2_AAACCCACAACAAAGT-1	O2_AAACCCACACGTACTA-1	O2_AAACCCACATTGCTTT-1	O2_AAACCCATCAAGAGGC-1	O2_AAACCCATCATGAGAA-1
 Gm19938	0	0	0	0	0	0	0
 Mrpl15	0	0	0	0	0	0	0.836548908
@@ -12,7 +12,7 @@ Lypla1	0	0	0	2.903692602	0	1.784298604	0
 Tcea1	0	0	0	0	0	0	0.836548908
 Atp6v1h	0	0	0	0	0	0	0
 Rb1cc1	0	0	0	0	0	1.784298604	0
-```
+>
 >All sample files are placed in the folder normalized_counts.
 
 #### step 2. Run
