@@ -90,4 +90,4 @@ perl LRcompare.pl merge_celltype.txt 5,6,7 2,3,4
 >In output file compare_merge_celltype.txt, the Ms is the average of group2 minus the average of group1, and pvalue is the p value of the permutation test. Users can also compare interested cell pairs in the merge_celltype folder.
 >
 
-<che@whu.edu.cn>
+If you have any questions, you can send Email to <che@whu.edu.cn>
