@@ -2,9 +2,9 @@ compareCCI
 ===
 compareCCI is a tool for analyzing different cell-cell communication between different groups (normal and tumor) or different conditions (treatment and control). The analysis process is as follows:
 
-#### step 1. Use the normalized counts matrix generated from Seurat as the input file. 
+#### step 1
 
-Each sample generates a file with Gene Symbol as row name and Cell barcode as column name. The format is as follows:
+Use the normalized counts matrix generated from Seurat as the input file. Each sample generates a file with Gene Symbol as row name and Cell barcode as column name. The format is as follows:
 
 ```shell
 gene	O2_AAACCCAAGCGTGAGT-1	O2_AAACCCAAGTAAGAGG-1	O2_AAACCCACAACAAAGT-1	O2_AAACCCACACGTACTA-1	O2_AAACCCACATTGCTTT-1	O2_AAACCCATCAAGAGGC-1	O2_AAACCCATCATGAGAA-1
@@ -18,7 +18,7 @@ Rb1cc1	0	0	0	0	0	1.784298604	0
 
 All sample files are placed in the folder normalized_counts.
 
-#### step 2. Run
+#### step 2
 ```perl
 perl LRexp.pl -c normalized_counts -a cell_annotation.txt -d LR_database.txt
 ```
@@ -69,7 +69,7 @@ Ada	Adora2b	0.0340165744927523	Erythroblast	0.00386360469068607	CD8 effector mem
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.00742336096690841	Naive B cell
 ```
 
-#### step 3. Run
+#### step 3
 ```perl
 perl LRscore.pl -d lr_tr_cell
 ```
@@ -89,7 +89,7 @@ F11r|F11r	1.37152915298106e-005	2.39733637137885e-005	2.25931441597501e-005	2.15
 
 Users can view LR scores in cell pairs of interest. "merge_celltype.txt" is the result after merging all cell pairs.
 
-#### step 4. Run
+#### step 4
 ```perl
 perl LRcompare.pl merge_celltype.txt 5,6,7 2,3,4
 ```
