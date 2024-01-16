@@ -25,7 +25,8 @@ perl LRexp.pl -c normalized_counts -a cell_annotation.txt -d LR_database.txt
 
 This step calculates the expression of ligands and receptors in different cells. Among them, cell_annotation.txt is the cell annotation file of all samples. The first column is the barcode name, and the second column is the cell type. The format is as follows:
 
->barcode	cellType
+```shell
+barcode	cellType
 O1_AAACCCAAGCAGAAAG-1	Neutrophil
 O1_AAACCCAAGCGTATGG-1	Neutrophil
 O1_AAACCCAAGGCGAACT-1	Naive B cell
@@ -36,12 +37,14 @@ O1_AAACCCACAGGTGACA-1	Mast cell
 O1_AAACCCACATGGACAG-1	Neutrophil
 O1_AAACCCAGTATCTTCT-1	Macrophage
 O1_AAACCCAGTCATCGCG-1	Fibroblast
+```
 
 Note: Barcode names may overlap between different samples. To distinguish, the sample name needs to be added in front of the barcode. Finally, ensure that the barcode name is consistent with the cell barcode in the normalized counts file.
 
 LR_database.txt is a manually curated ligand-receptor database. We integrated mouse ligands and receptors from three databases: CellChat, CytoTalk, and celltalkDB. Users can also define the database themselves, in the following format:
 
->ligand	receptor
+```shell
+ligand	receptor
 A2m	Lrp1
 Aanat	Mtnr1a
 Aanat	Mtnr1b
@@ -51,17 +54,20 @@ Ada	Adora1
 Ada	Adora2b
 Ada	Dpp4
 Adam10	Axl
+```
 
 The first column is the ligand and the second column is the receptor.
 
 Output the folder lr_tr_cell, which contains the corresponding ligand and receptor expression in each cell of all samples. The format is as follows:
 
->ligand	receptor	cell_from_mean_exprs	cell_from	cell_to_mean_exprs	cell_to
+```shell
+ligand	receptor	cell_from_mean_exprs	cell_from	cell_to_mean_exprs	cell_to
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.00579164113556388	Erythroblast
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.140537284672739	Fibroblast
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.00618924096042447	B cell
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.00386360469068607	CD8 effector memory T cell
 Ada	Adora2b	0.0340165744927523	Erythroblast	0.00742336096690841	Naive B cell
+```
 
 #### step 3. Run
 ```perl
@@ -72,12 +78,14 @@ This step calculates the ligand-receptor interaction scores (LRscore) for differ
 
 "merge_celltype" includes the score of the ligand receptor, which is stored in different cell pairs. The format is as follows:
 
->sample	O1.norm_exp	O2.norm_exp	O3.norm_exp	Y1.norm_exp	Y2.norm_exp	Y3.norm_exp
+```shell
+sample	O1.norm_exp	O2.norm_exp	O3.norm_exp	Y1.norm_exp	Y2.norm_exp	Y3.norm_exp
 Cd48|Cd244a	0.00133969277955394	0.00391021915676158	0.00336604527908225	0.00603279581105832	0.00129756261222217	0.00320216518808127
 Cd84|Cd84	0.020095145907206	0.025206582082959	0.0272519163463504	0.0317181735453552	0.0378040130383532	0.0449430693002365
 Cfh|Sell	0.00427550190435078	0.00183540259665721	0.00437072285249835	0.00320479767553492	0.000607041301914194	0.00235952189574622
 Cntn2|Cntn2	8.21033129094134e-007	0	0	0	2.79085444696625e-006	0
 F11r|F11r	1.37152915298106e-005	2.39733637137885e-005	2.25931441597501e-005	2.15905734094119e-005	2.5497745027597e-005	2.16640738812221e-005
+```
 
 Users can view LR scores in cell pairs of interest. "merge_celltype.txt" is the result after merging all cell pairs.
 
