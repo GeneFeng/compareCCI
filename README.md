@@ -2,7 +2,9 @@ compareCCI
 ===
 compareCCI is a tool for analyzing different cell-cell communication between different groups (normal and tumor) or different conditions (treatment and control). The analysis process is as follows:
 
-#### step 1. Use the normalized counts matrix generated from Seurat as the input file. Each sample generates a file with Gene Symbol as row name and Cell barcode as column name. The format is as follows:
+#### step 1. Use the normalized counts matrix generated from Seurat as the input file. 
+
+Each sample generates a file with Gene Symbol as row name and Cell barcode as column name. The format is as follows:
 
 gene	O2_AAACCCAAGCGTGAGT-1	O2_AAACCCAAGTAAGAGG-1	O2_AAACCCACAACAAAGT-1	O2_AAACCCACACGTACTA-1	O2_AAACCCACATTGCTTT-1	O2_AAACCCATCAAGAGGC-1	O2_AAACCCATCATGAGAA-1
 Gm19938	0	0	0	0	0	0	0
