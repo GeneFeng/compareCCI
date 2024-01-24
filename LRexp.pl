@@ -227,7 +227,7 @@ while(my $sub_dir=readdir(DIR)){
 						if($value==0){  #If the average expression of a gene in all cells of this cell type is 0, it does not need to be counted
 						}else{
 							#my $final=$cell."\t".$value;
-							my $final=$value."\t".$cell; #This is to be consistent with the results of italk
+							my $final=$value."\t".$cell;
 							push @{$hash{$name}},$final;
 						}
 					}
