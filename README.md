@@ -98,4 +98,11 @@ This program performs a permutation test on two sets of LR scores. "merge_cellty
 
 In output file compare_merge_celltype.txt, the Ms is the average of group2 minus the average of group1, and pvalue is the p value of the permutation test. Users can also compare interested cell pairs in the merge_celltype folder.
 
+#### step 5
+```shell
+Rscript get_padj.R compare_merge_celltype.txt
+```
+
+This code is used to perform the multiple test correction using BH method. The result file BH_compare_merge_celltype.txt contains the adjusted P-value in the last column.
+
 If you have any questions, you can send Email to <che@whu.edu.cn>
